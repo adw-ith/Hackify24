@@ -11,8 +11,7 @@ const SpeechToText: React.FC = () => {
 
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
 
     try {
       const response = await axios.post<{ message: string }>(
@@ -21,7 +20,7 @@ const SpeechToText: React.FC = () => {
           speech: transcript,
         }
       );
-
+      console.log(response);
       setTranscript(response.data.message);
     } catch (error) {
       console.error("Error:", error);
@@ -31,6 +30,7 @@ const SpeechToText: React.FC = () => {
   const startListening = () => {
     const recognition = new window.webkitSpeechRecognition();
     recognition.lang = "en-US";
+    setTranscript("");
 
     recognition.onstart = () => {
       console.log("Speech recognition started");
@@ -58,13 +58,12 @@ const SpeechToText: React.FC = () => {
   }
 
   return (
-    <div>
+    <div style={{height: "8dvh", display: "flex", flexDirection: "column", gap: "10px"}}>
       <div><h6>{transcript}</h6></div>
-      <div>
+      <div style={{height: "100%"}}>
         {audio? 
-         <FaMicrophoneAlt onClick={() => {buttonAction()}} />:
-        <div style={{height: "100%", width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center"
-        }}>
+         <FaMicrophoneAlt className="microphone" onClick={() => {buttonAction()}} />:
+        <div style={{height: "100%", width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
           <img style={{height: "100%", width: "100%", objectFit: "contain"}} src="/audio.gif" alt="" />
           <button style={{position: "absolute", right: "10px", border: "0", background: "transparent", color: "blue", fontSize: "24px"}}  onClick={() => {setAudio(true)}}><IoMdSend onClick={() => {handleSubmit}}/></button>
         </div>
