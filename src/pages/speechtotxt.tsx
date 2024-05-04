@@ -1,14 +1,22 @@
+// Modify SpeechToText.tsx
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import React, { useState } from "react";
-import { IoMdSend } from "react-icons/io";
 import { FaMicrophoneAlt } from "react-icons/fa";
+import { IoMdSend } from "react-icons/io";
 
-const SpeechToText: React.FC = () => {
+interface SpeechToTextProps {
+  onTranscriptChange: (transcript: string) => void;
+}
+
+const SpeechToText: React.FC<SpeechToTextProps> = ({ onTranscriptChange }) => {
   const [transcript, setTranscript] = useState<string>("");
 
   const [audio, setAudio] = useState(true);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  useEffect(() => {
+    onTranscriptChange(transcript);
+  }, [transcript, onTranscriptChange]);
+
   const handleSubmit = async () => {
     console.log(transcript);
     try {
@@ -44,6 +52,8 @@ const SpeechToText: React.FC = () => {
     };
 
     recognition.onend = () => {
+      setAudio(true);
+      handleSubmit();
       console.log("Speech recognition ended");
     };
 
@@ -56,14 +66,7 @@ const SpeechToText: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        height: "8dvh",
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-      }}
-    >
+    <div style={{ height: "8dvh", display: "flex", flexDirection: "column", gap: "10px" }}>
       <div>
         <h6>{transcript}</h6>
       </div>
