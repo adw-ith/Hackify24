@@ -1,7 +1,26 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 const SpeechToText: React.FC = () => {
   const [transcript, setTranscript] = useState<string>("");
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post<{ message: string }>(
+        "http://localhost:5000/run",
+        {
+          speech: transcript,
+        }
+      );
+
+      setTranscript(response.data.message);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   const startListening = () => {
     const recognition = new window.webkitSpeechRecognition();
@@ -30,7 +49,7 @@ const SpeechToText: React.FC = () => {
   return (
     <div>
       <button onClick={startListening}>Start Listening</button>
-      <p>Transcript: {transcript}</p>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
