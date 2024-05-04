@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SignupForm() {
 
@@ -22,7 +23,7 @@ export default function SignupForm() {
             <input type="email" name="" id="" placeholder="Enter E-Mail"/>
             <input type="password" name="" id="" placeholder="Enter a password"/>
             <input type="password" name="" id="" placeholder="Confirm password"/>
-            <button className="signupSubmit" type="submit">SignUp</button>
+            <Link to='/preferences'><button className="signupSubmit" type="submit">SignUp</button></Link>
           </form>
         </div>
       </section>
