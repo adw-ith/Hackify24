@@ -11,7 +11,7 @@ export default function SignupForm() {
   };
   const signin =  (
       <section style={{width: "100dvw", height: "100dvh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden"}}>
-        <div style={{width: "90dvw", height: "60dvh", display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px",  background: "rgba(33, 53, 71, 0.5)", borderRadius: "10px", padding: "20px 10px"}}>
+        <div className="signin-container" style={{width: "90dvw", height: "60dvh", display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px", borderRadius: "10px", padding: "20px 10px"}}>
           <div style={{width: "90%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: "10px"}}>
             <button className={`switch-btn ${state ? "":"switch-btn-active"}`} onClick={() => {
               setState(true);
@@ -30,7 +30,7 @@ export default function SignupForm() {
   );
   const login =  (
       <section style={{width: "100dvw", height: "100dvh", display: "flex", alignItems: "center", justifyContent: "center"}}>
-        <div style={{width: "90dvw", height: "60dvh", display: "flex",flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px",  background: "rgba(33, 53, 71, 0.5)", borderRadius: "10px", padding: "20px 10px"}}>
+        <div className="signin-container" style={{width: "90dvw", height: "60dvh", display: "flex",flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px", borderRadius: "10px", padding: "20px 10px"}}>
             <div style={{width: "90%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: "10px"}}>
               <button className="switch-btn">Login</button>
               <button className={`switch-btn ${(state)? "switch-btn-active":""}`} onClick={() =>{

@@ -1,15 +1,15 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
-import LandingPage from './pages/home'
-import ChatInterface from './pages/ChatInterface'
-import SignupForm from './pages/signup'
-import Preferences from './pages/preferences'
-import Contact from './pages/Contact'
-import Chat from './pages/chat'
-import Blog from './pages/Blog'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import LandingPage from "./pages/home";
+import ChatInterface from "./pages/ChatInterface";
+import SignupForm from "./pages/signup";
+import Preferences from "./pages/preferences";
+import Contact from "./pages/Contact";
+import Chat from "./pages/chat";
+import Blog from "./pages/Blog";
+import Table from "./pages/Table";
 
 function App() {
-
   return (
     //HEX CODES:
     // #243127
@@ -27,10 +27,11 @@ function App() {
           <Route path="/contact" Component={Contact} />
           <Route path="/chatB" Component={Chat} />
           <Route path="/blog" Component={Blog} />
+          <Route path="/mem" Component={Table} />
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

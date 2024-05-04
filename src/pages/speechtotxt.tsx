@@ -1,8 +1,31 @@
-// Modify SpeechToText.tsx
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FaMicrophoneAlt } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
 import { IoMdSend } from "react-icons/io";
+import { FaMicrophoneAlt } from "react-icons/fa";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const datapd = [
+  {
+    date: "01-05-2024",
+    score: 1.1102117,
+  },
+  {
+    date: "02-05-2024",
+    score: 2.1902191,
+  },
+  {
+    date: "03-05-2024",
+    score: 1.4905111,
+  },
+  {
+    date: "04-05-2024",
+    score: 1.0003213,
+  },
+  {
+    date: "05-05-2024",
+    score: 0.9891196,
+  },
+];
 
 interface SpeechToTextProps {
   onTranscriptChange: (transcript: string) => void;
@@ -10,6 +33,8 @@ interface SpeechToTextProps {
 
 const SpeechToText: React.FC<SpeechToTextProps> = ({ onTranscriptChange }) => {
   const [transcript, setTranscript] = useState<string>("");
+  const [emo, setEmo] = useState<string>("");
+  const [emoValue, setEmoValue] = useState<number>(0);
 
   const [audio, setAudio] = useState(true);
 
@@ -17,6 +42,7 @@ const SpeechToText: React.FC<SpeechToTextProps> = ({ onTranscriptChange }) => {
     onTranscriptChange(transcript);
   }, [transcript, onTranscriptChange]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async () => {
     console.log(transcript);
     try {
@@ -27,7 +53,10 @@ const SpeechToText: React.FC<SpeechToTextProps> = ({ onTranscriptChange }) => {
         }
       );
       console.log(response);
-      // setTranscript(response.data.message);
+      setEmo(response.data.toString());
+      console.log(emo);
+      setEmoValue(emoValue + +emo);
+      console.log(emoValue);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -66,51 +95,73 @@ const SpeechToText: React.FC<SpeechToTextProps> = ({ onTranscriptChange }) => {
   };
 
   return (
-    <div style={{ height: "8dvh", display: "flex", flexDirection: "column", gap: "10px" }}>
+    <div>
       <div>
         <h6>{transcript}</h6>
       </div>
-      <div style={{ height: "100%" }}>
-        {audio ? (
-          <FaMicrophoneAlt
-            className="microphone"
-            onClick={() => {
-              buttonAction();
-            }}
-          />
-        ) : (
-          <div
-            style={{
-              height: "100%",
-              width: "100%",
-              position: "relative",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              style={{ height: "100%", width: "100%", objectFit: "contain" }}
-              src="/audio.gif"
-              alt=""
-            />
-            <button
-              style={{
-                position: "absolute",
-                right: "10px",
-                border: "0",
-                background: "transparent",
-                color: "blue",
-                fontSize: "24px",
-              }}
+      <div className="writebox px-4 d-flex">
+        <input
+          type="text"
+          className="w-100"
+          onChange={(e) => {
+            setTranscript(e.target.value);
+          }}
+        />
+        <button className="btn btn-primary">
+          <IoMdSend onClick={handleSubmit} />{" "}
+        </button>
+      </div>
+      <div
+        style={{
+          height: "8dvh",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+        }}
+      >
+        <div style={{ height: "100%" }} className="mb-4">
+          {audio ? (
+            <FaMicrophoneAlt
+              className="microphone"
+              style={{ fontSize: "36px" }}
               onClick={() => {
-                setAudio(true);
+                buttonAction();
+              }}
+            />
+          ) : (
+            <div
+              style={{
+                height: "100%",
+                width: "100%",
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <IoMdSend onClick={handleSubmit} />
-            </button>
-          </div>
-        )}
+              <img
+                style={{ height: "100%", width: "100%", objectFit: "contain" }}
+                src="/audio.gif"
+                alt=""
+              />
+              <button
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  border: "0",
+                  background: "transparent",
+                  color: "blue",
+                  fontSize: "24px",
+                }}
+                onClick={() => {
+                  setAudio(true);
+                }}
+              >
+                <IoMdSend onClick={handleSubmit} />
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
