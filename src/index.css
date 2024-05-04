@@ -98,29 +98,50 @@ a{
   text-decoration: none;
   background-color: #14A44D;
 }
-::placeholder{
-  color: #9FA6B2;
+
+
+/*  */
+.blog-container{
+  background-color: #0F0D0D;
+  padding: 15px;
+  margin: 0;
+  /* height: 100vh; */
+  width: 100dvw;
+  color: #eee;
+}
+.blog-container h1{
+  font-size: 4.3rem;
+  font-weight: 700;
+}
+.main-img{
+  width: 100%;
+}
+.blog-card p,.blog-side-card p{
+  padding-top: 10px;
+  text-align: start;
+  color:#8b8989;
+} 
+.blog-card h4, .blog-side-card h4{
+  font-size: 18px;
+  text-align: justify;
+}
+.blog-side-card h4{
+  font-size: 15px;
 }
 
-/* chat UI */
-.chatUI{
-  height: 100dvh;
-  width: 100dvw;
+.blog-side-card{
+  border-top:1px solid #8b8989;
+  padding:5px;
   display: grid;
-  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 65% 35%;
+  margin: 10px 0;
 }
-.chatInterfaceHead{
+.blog-side-card .side-img{
+  width: 100%;
+}
+.side-img-container{
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.chatInterfaceHead h3{
-  font-size: 30px;
-  font-weight: 600;
-}
-.chat-bottom{
-  width: 100%;
-  height: 100%;
+  display: grid;
+  place-items: center ;
 }

@@ -1,6 +1,7 @@
 // Modify ChatInterface.tsx
 import { useState } from "react";
 import SpeechToText from "./speechtotxt";
+import { Link } from "react-router-dom";
 
 export default function ChatInterface() {
   const [transcript, setTranscript] = useState<string>("");
@@ -10,13 +11,18 @@ export default function ChatInterface() {
   };
 
   return (
-    <section className="chatUI">
-      <div className="chatInterfaceHead">
-        <h3>ChatBotName</h3>
+    <section
+      className="chatUI p-4"
+      style={{ height: "100dvh", width: "100dvw" }}
+    >
+      <div className="chatInterfaceHead d-flex justify-content-between">
+        <h3>EMOTI</h3>
+        <Link to="/mem" className="btn btn-secondary">
+          data
+        </Link>
       </div>
       <div
         style={{
-          width: "100dvw",
           display: "flex",
           justifyContent: "right",
           padding: "20px",
@@ -35,7 +41,7 @@ export default function ChatInterface() {
           {transcript}
         </p>
       </div>
-      <div className="chat-bottom">
+      <div className="chat-bottom pb-4">
         <SpeechToText onTranscriptChange={handleTranscriptChange} />
       </div>
     </section>
