@@ -6,6 +6,7 @@ import SignupForm from './pages/signup'
 import Preferences from './pages/preferences'
 import Contact from './pages/Contact'
 import Chat from './pages/chat'
+import Blog from './pages/Blog'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/preferences" Component={Preferences} />
           <Route path="/contact" Component={Contact} />
           <Route path="/chatB" Component={Chat} />
+          <Route path="/blog" Component={Blog} />
         </Routes>
       </BrowserRouter>
     </>

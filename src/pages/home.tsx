@@ -1,32 +1,17 @@
-// import axios from "axios";
-// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function LandingPage() {
-  // const [message, setMessage] = useState<string>("");
-
-  // // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await axios.post<{ message: string }>(
-  //       "http://localhost:5000/run",
-  //       {
-  //         speech: "i feel sad",
-  //       }
-  //     );
-
-  //     setMessage(response.data.message);
-  //     console.log(response);
-  //     console.log(response.data);
-  //     console.log(message);
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // };
   return (
     <section className="home">
+      <div style={{position: "fixed", top: "0", left: "0" ,display: "flex", alignItems: "center", justifyContent: "space-between", flexDirection: "row", width: "100dvw", height: "5dvh", padding: "10px 20px"}}>
+        <div>LOGO-IMAGE</div>
+        <div style={{ height: "100%"}}>
+          <ul style={{display: "flex", alignItems: "center", justifyContent: "space-between", flexDirection: "row", gap: "10px"}}>
+            <li style={{listStyle: "none"}}><Link to="/blog">Blog</Link></li>
+            <li style={{listStyle: "none"}}><Link to="/signup">Login</Link></li>
+          </ul>
+        </div>
+      </div>
       <h1 className="h1 text-muted">EMOTICARE</h1>
       <div className="card-container">
         <div className="card">

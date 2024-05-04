@@ -73,6 +73,8 @@ const SpeechToText: React.FC = () => {
     };
 
     recognition.onend = () => {
+      setAudio(true);
+      handleSubmit();
       console.log("Speech recognition ended");
     };
 
