@@ -3,8 +3,34 @@ import React, { useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import { FaMicrophoneAlt } from "react-icons/fa";
 
+// eslint-disable-next-line react-refresh/only-export-components
+export const datapd = [
+  {
+    date: "01-05-2024",
+    score: 1.1102117,
+  },
+  {
+    date: "02-05-2024",
+    score: 2.1902191,
+  },
+  {
+    date: "03-05-2024",
+    score: 1.4905111,
+  },
+  {
+    date: "04-05-2024",
+    score: 1.0003213,
+  },
+  {
+    date: "05-05-2024",
+    score: 0.9891196,
+  },
+];
+
 const SpeechToText: React.FC = () => {
   const [transcript, setTranscript] = useState<string>("");
+  const [emo, setEmo] = useState<string>("");
+  const [emoValue, setEmoValue] = useState<number>(0);
 
   const [audio, setAudio] = useState(true);
 
@@ -19,7 +45,10 @@ const SpeechToText: React.FC = () => {
         }
       );
       console.log(response);
-      // setTranscript(response.data.message);
+      setEmo(response.data.toString());
+      console.log(emo);
+      setEmoValue(emoValue + +emo);
+      console.log(emoValue);
     } catch (error) {
       console.error("Error:", error);
     }
