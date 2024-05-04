@@ -17,7 +17,8 @@ def my_endpoint():
     elif res['neg'] < res['pos'] and res['neu'] < res['pos']:
         d = res['pos']
     else:
-        d = 0
+        d = res['pos'] - res['neg']
+
     print(d)
     return str(d)
 

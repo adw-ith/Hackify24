@@ -1,37 +1,33 @@
-import axios from "axios";
-import { useState } from "react";
+// import axios from "axios";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function LandingPage() {
-  const [message, setMessage] = useState<string>("");
+  // const [message, setMessage] = useState<string>("");
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  // // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // const handleSubmit = async (e: any) => {
+  //   e.preventDefault();
 
-    try {
-      const response = await axios.post<{ message: string }>(
-        "http://localhost:5000/run",
-        {
-          speech: "i feel sad",
-        }
-      );
+  //   try {
+  //     const response = await axios.post<{ message: string }>(
+  //       "http://localhost:5000/run",
+  //       {
+  //         speech: "i feel sad",
+  //       }
+  //     );
 
-      setMessage(response.data.message);
-      console.log(response);
-      console.log(response.data);
-      console.log(message);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+  //     setMessage(response.data.message);
+  //     console.log(response);
+  //     console.log(response.data);
+  //     console.log(message);
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
   return (
     <section className="home">
-      <h1
-        style={{ fontSize: "30px", fontWeight: "700", marginBottom: "-20px" }}
-      >
-        APP NAME
-      </h1>
+      <h1 className="h1 text-muted">EMOTICARE</h1>
       <div className="card-container">
         <div className="card">
           <h3>MENTAL HEALTH THAT MEETS PEOPLE WHERE THEY ARE</h3>
@@ -57,8 +53,8 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <button onClick={handleSubmit}>submit</button>
-      <h1>{message}</h1>
+      {/* <button onClick={handleSubmit}>submit</button>
+      <h1>{message}</h1> */}
       <Link to="/contact" style={{ display: "flex", justifyContent: "center" }}>
         <button className="next contact-btn">Contact</button>
       </Link>
