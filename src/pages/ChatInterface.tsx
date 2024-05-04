@@ -8,9 +8,9 @@ export default function ChatInterface() {
       </div>
       <div></div>
       <div className="chat-bottom">
-        {/* <button className="microphone">
+        <button className="microphone">
           <FaMicrophoneAlt />
-        </button> */}
+        </button>
         <video src="public/audio.gif"></video>
       </div>
     </section>
