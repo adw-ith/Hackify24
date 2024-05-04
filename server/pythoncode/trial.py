@@ -26,6 +26,6 @@ def polarity_scores_roberta(example):
     return scores_dict
 
 
-roberta_result = polarity_scores_roberta("i fell spent")
+roberta_result = polarity_scores_roberta("i am tired")
 
 print(roberta_result)
