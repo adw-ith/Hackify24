@@ -5,6 +5,7 @@ import ChatInterface from './pages/ChatInterface'
 import SignupForm from './pages/signup'
 import Preferences from './pages/preferences'
 import Contact from './pages/Contact'
+import Chat from './pages/chat'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/chat" Component={ChatInterface} />
           <Route path="/preferences" Component={Preferences} />
           <Route path="/contact" Component={Contact} />
+          <Route path="/chatB" Component={Chat} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,8 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { IoMdSend } from "react-icons/io";
+import { FaMicrophoneAlt } from "react-icons/fa";
+
 
 const SpeechToText: React.FC = () => {
   const [transcript, setTranscript] = useState<string>("");
+
+  const [audio, setAudio] = useState(true)
+
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (e: any) => {
@@ -46,10 +52,24 @@ const SpeechToText: React.FC = () => {
     recognition.start();
   };
 
+  const buttonAction = () => {
+    startListening();
+    setAudio(false);
+  }
+
   return (
     <div>
-      <button onClick={startListening}>Start Listening</button>
-      <button onClick={handleSubmit}>Submit</button>
+      <div><h6>{transcript}</h6></div>
+      <div>
+        {audio? 
+         <FaMicrophoneAlt onClick={() => {buttonAction()}} />:
+        <div style={{height: "100%", width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center"
+        }}>
+          <img style={{height: "100%", width: "100%", objectFit: "contain"}} src="/audio.gif" alt="" />
+          <button style={{position: "absolute", right: "10px", border: "0", background: "transparent", color: "blue", fontSize: "24px"}}  onClick={() => {setAudio(true)}}><IoMdSend onClick={() => {handleSubmit}}/></button>
+        </div>
+        }
+      </div>
     </div>
   );
 };

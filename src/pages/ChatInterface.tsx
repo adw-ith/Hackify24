@@ -1,10 +1,7 @@
-import { useState } from "react";
-import { FaMicrophoneAlt } from "react-icons/fa";
-import { IoMdSend } from "react-icons/io";
+import SpeechToText from "./speechtotxt";
 
 export default function ChatInterface() {
 
-  const [audio, setAudio] = useState(true)
 
   return (
     <section className="chatUI">
@@ -13,16 +10,7 @@ export default function ChatInterface() {
       </div>
       <div></div>
       <div className="chat-bottom">
-        {audio? 
-        <button className="microphone" onClick={() => {setAudio(false)}}>
-          <FaMicrophoneAlt />
-        </button> :
-        <div style={{height: "100%", width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center"
-        }}>
-          <img style={{height: "100%", width: "100%", objectFit: "contain"}} src="/audio.gif" alt="" />
-          <button style={{position: "absolute", right: "10px", border: "0", background: "transparent", color: "blue", fontSize: "24px"}}  onClick={() => {setAudio(true)}}><IoMdSend /></button>
-        </div>
-        }   
+        <SpeechToText />   
       </div>
     </section>
   );
