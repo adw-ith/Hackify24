@@ -12,12 +12,13 @@ def my_endpoint():
     data = request.json
     msg = data.get('speech')
     res = polarity_scores_roberta(msg)
-    if res['neg'] > res['pos']:
+    if res['neg'] > res['pos'] and res['neg'] > res['neu']:
         d = res['neg'] * -1
-    elif res['neg'] < res['pos']:
+    elif res['neg'] < res['pos'] and res['neu'] < res['pos']:
         d = res['pos']
     else:
         d = 0
+    print(d)
     return str(d)
 
 
