@@ -24,8 +24,3 @@ def polarity_scores_roberta(example):
         'pos': scores[2]
     }
     return scores_dict
-
-
-roberta_result = polarity_scores_roberta("i am tired")
-
-print(roberta_result)
