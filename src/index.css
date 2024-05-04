@@ -55,6 +55,9 @@ h1 {
 .contact-btn{
   bottom: 60px;
   width: 50dvw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -80,7 +83,7 @@ h1 {
 .card-container{
   width: 100dvw;
   height: 60dvh;
-  padding: 10px;
+  padding: 20px;
 }
 
 .card{
@@ -92,14 +95,14 @@ h1 {
 }
 
 .card h3{
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   text-align: left;
   border-bottom: 1px solid gray;
 }
 
 .card p{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   text-align: right;
 }

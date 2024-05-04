@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function LandingPage() {
   return (
     <section className="home">
-      <h1 style={{fontSize: "30px", fontWeight: "700"}}>APP NAME</h1>
+      <h1 style={{fontSize: "30px", fontWeight: "700", marginBottom: "-20px"}}>APP NAME</h1>
       <div className="card-container">
         <div className="card">
           <h3>MENTAL HEALTH THAT MEETS PEOPLE WHERE THEY ARE</h3>
