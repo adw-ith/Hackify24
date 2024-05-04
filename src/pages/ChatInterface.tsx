@@ -11,7 +11,7 @@ export default function ChatInterface() {
         <button className="microphone">
           <FaMicrophoneAlt />
         </button>
-        <video src="public/audio.gif"></video>
+        
       </div>
     </section>
   );

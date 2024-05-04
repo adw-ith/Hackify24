@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function SignupFormDemo() {
+export default function SignupForm() {
 
   const [state, setState] = useState(true);
 

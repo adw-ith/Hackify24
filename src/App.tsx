@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import LandingPage from './pages/home'
+import ChatInterface from './pages/ChatInterface'
+import SignupForm from './pages/signup'
 
 function App() {
 
@@ -12,7 +14,13 @@ function App() {
     // #ffdf7c
     // #fdefc0
     <>
-      <LandingPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" Component={LandingPage} />
+          <Route path="/signup" Component={SignupForm} />
+          <Route path="/chat" Component={ChatInterface} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
