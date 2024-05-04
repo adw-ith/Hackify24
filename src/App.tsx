@@ -1,5 +1,6 @@
 import './App.css'
 import LandingPage from './pages/home'
+import Speech from './pages/speech'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     // #fdefc0
     <>
       <LandingPage />
+      <Speech/>
     </>
   )
 }
