@@ -11,7 +11,7 @@ export default function ChatInterface() {
 
   return (
     <section className="chatUI">
-      <div>
+      <div className="chatInterfaceHead">
         <h3>ChatBotName</h3>
       </div>
       <div style={{ width: "100dvw", display: "flex", justifyContent: "right", padding: "20px" }}>
