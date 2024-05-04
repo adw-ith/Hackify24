@@ -8,11 +8,11 @@ export default function LandingPage() {
         <div style={{ height: "100%"}}>
           <ul style={{display: "flex", alignItems: "center", justifyContent: "space-between", flexDirection: "row", gap: "10px"}}>
             <li style={{listStyle: "none"}}><Link to="/blog">Blog</Link></li>
-            <li style={{listStyle: "none"}}><Link to="/signup">Login</Link></li>
+            <li style={{listStyle: "none"}}><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
       </div>
-      <h1 className="h1 text-muted">EMOTICARE</h1>
+      <h1 className="home-heading text-muted">EMOTICARE</h1>
       <div className="card-container">
         <div className="card">
           <h3>Your Own Personalized Virtual Companion</h3>
@@ -34,15 +34,6 @@ export default function LandingPage() {
           </Link>
         </div>
       </div>
-
-      {/* <button onClick={handleSubmit}>submit</button>
-      <h1>{message}</h1> */}
-      <Link to="/contact" style={{ display: "flex", justifyContent: "center" }}>
-        <button className="next contact-btn">Contact</button>
-      </Link>
-      <Link to="/chat" style={{ display: "flex", justifyContent: "center" }}>
-        <button className="next">NEXT</button>
-      </Link>
     </section>
   );
 }
