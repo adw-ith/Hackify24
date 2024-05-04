@@ -30,11 +30,8 @@ export default function LandingPage() {
       <h1 className="h1 text-muted">EMOTICARE</h1>
       <div className="card-container">
         <div className="card">
-          <h3>MENTAL HEALTH THAT MEETS PEOPLE WHERE THEY ARE</h3>
-          <p>
-            CLINICALLY VALIDATED AI GIVES IMMEDIATE SUPPORT AS FIRST STEP OF
-            CARE
-          </p>
+          <h3>Your Own Personalized Virtual Companion</h3>
+          <p></p>
           <Link to="/signup">
             <button
               style={{
