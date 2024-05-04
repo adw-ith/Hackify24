@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import { FaMicrophoneAlt } from "react-icons/fa";
 
@@ -27,12 +27,20 @@ export const datapd = [
   },
 ];
 
-const SpeechToText: React.FC = () => {
+interface SpeechToTextProps {
+  onTranscriptChange: (transcript: string) => void;
+}
+
+const SpeechToText: React.FC<SpeechToTextProps> = ({ onTranscriptChange }) => {
   const [transcript, setTranscript] = useState<string>("");
   const [emo, setEmo] = useState<string>("");
   const [emoValue, setEmoValue] = useState<number>(0);
 
   const [audio, setAudio] = useState(true);
+
+  useEffect(() => {
+    onTranscriptChange(transcript);
+  }, [transcript, onTranscriptChange]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async () => {
