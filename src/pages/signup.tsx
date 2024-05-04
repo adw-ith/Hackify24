@@ -10,19 +10,19 @@ export default function SignupForm() {
     console.log("Form submitted");
   };
   const signin =  (
-      <section style={{width: "100dvw", height: "100dvh", display: "flex", alignItems: "center", justifyContent: "center"}}>
-        <div style={{width: "90dvw", height: "60dvh", display: "flex",flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px",  background: "rgba(33, 53, 71, 0.5)", borderRadius: "20px", padding: "20px 10px"}}>
-            <div style={{width: "90%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between"}}>
-              <button className={`switch-btn ${state ? "":"switch-btn-active"}`} onClick={() => {
-                setState(true);
-              }}>Login</button>
-              <button className="switch-btn">SignUp</button>
-            </div>
+      <section style={{width: "100dvw", height: "100dvh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden"}}>
+        <div style={{width: "90dvw", height: "60dvh", display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px",  background: "rgba(33, 53, 71, 0.5)", borderRadius: "10px", padding: "20px 10px"}}>
+          <div style={{width: "90%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: "10px"}}>
+            <button className={`switch-btn ${state ? "":"switch-btn-active"}`} onClick={() => {
+              setState(true);
+            }}>Login</button>
+            <button className="switch-btn">SignUp</button>
+          </div>
           <form className="signUpForm" onSubmit={handleSubmit}>
-            <input type="text" name="" id="" placeholder="Enter UserName"/>
-            <input type="email" name="" id="" placeholder="Enter E-Mail"/>
-            <input type="password" name="" id="" placeholder="Enter a password"/>
-            <input type="password" name="" id="" placeholder="Confirm password"/>
+            <input type="text" placeholder="Enter UserName"/>
+            <input type="email" placeholder="Enter E-Mail"/>
+            <input type="password" placeholder="Enter a password"/>
+            <input type="password" placeholder="Confirm password"/>
             <Link to='/preferences'><button className="signupSubmit" type="submit">SignUp</button></Link>
           </form>
         </div>
@@ -30,16 +30,16 @@ export default function SignupForm() {
   );
   const login =  (
       <section style={{width: "100dvw", height: "100dvh", display: "flex", alignItems: "center", justifyContent: "center"}}>
-        <div style={{width: "90dvw", height: "60dvh", display: "flex",flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px",  background: "rgba(33, 53, 71, 0.5)", borderRadius: "20px", padding: "20px 10px"}}>
-            <div style={{width: "90%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between"}}>
+        <div style={{width: "90dvw", height: "60dvh", display: "flex",flexDirection: "column", alignItems:"center", justifyContent: "center",  gap: "20px",  background: "rgba(33, 53, 71, 0.5)", borderRadius: "10px", padding: "20px 10px"}}>
+            <div style={{width: "90%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: "10px"}}>
               <button className="switch-btn">Login</button>
               <button className={`switch-btn ${(state)? "switch-btn-active":""}`} onClick={() =>{
                 setState(false)
               }}>SignUp</button>
             </div>
-          <form className="signUpForm" onSubmit={handleSubmit}>
-            <input type="email" name="" id="" placeholder="Enter E-Mail"/>
-            <input type="password" name="" id="" placeholder="Enter a password"/>
+          <form className="signUpForm" style={{padding: "80px 10px"}} onSubmit={handleSubmit}>
+            <input type="email" placeholder="Enter E-Mail"/>
+            <input type="password" placeholder="Enter a password"/>
             <button className="signupSubmit" type="submit">Login</button>
           </form>
         </div>
