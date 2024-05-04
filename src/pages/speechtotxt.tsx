@@ -3,16 +3,14 @@ import React, { useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import { FaMicrophoneAlt } from "react-icons/fa";
 
-
 const SpeechToText: React.FC = () => {
   const [transcript, setTranscript] = useState<string>("");
 
-  const [audio, setAudio] = useState(true)
-
+  const [audio, setAudio] = useState(true);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async () => {
-
+    console.log(transcript);
     try {
       const response = await axios.post<{ message: string }>(
         "http://localhost:5000/run",
@@ -21,7 +19,7 @@ const SpeechToText: React.FC = () => {
         }
       );
       console.log(response);
-      setTranscript(response.data.message);
+      // setTranscript(response.data.message);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -55,19 +53,61 @@ const SpeechToText: React.FC = () => {
   const buttonAction = () => {
     startListening();
     setAudio(false);
-  }
+  };
 
   return (
-    <div style={{height: "8dvh", display: "flex", flexDirection: "column", gap: "10px"}}>
-      <div><h6>{transcript}</h6></div>
-      <div style={{height: "100%"}}>
-        {audio? 
-         <FaMicrophoneAlt className="microphone" onClick={() => {buttonAction()}} />:
-        <div style={{height: "100%", width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
-          <img style={{height: "100%", width: "100%", objectFit: "contain"}} src="/audio.gif" alt="" />
-          <button style={{position: "absolute", right: "10px", border: "0", background: "transparent", color: "blue", fontSize: "24px"}}  onClick={() => {setAudio(true)}}><IoMdSend onClick={() => {handleSubmit}}/></button>
-        </div>
-        }
+    <div
+      style={{
+        height: "8dvh",
+        display: "flex",
+        flexDirection: "column",
+        gap: "10px",
+      }}
+    >
+      <div>
+        <h6>{transcript}</h6>
+      </div>
+      <div style={{ height: "100%" }}>
+        {audio ? (
+          <FaMicrophoneAlt
+            className="microphone"
+            onClick={() => {
+              buttonAction();
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              height: "100%",
+              width: "100%",
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              style={{ height: "100%", width: "100%", objectFit: "contain" }}
+              src="/audio.gif"
+              alt=""
+            />
+            <button
+              style={{
+                position: "absolute",
+                right: "10px",
+                border: "0",
+                background: "transparent",
+                color: "blue",
+                fontSize: "24px",
+              }}
+              onClick={() => {
+                setAudio(true);
+              }}
+            >
+              <IoMdSend onClick={handleSubmit} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
