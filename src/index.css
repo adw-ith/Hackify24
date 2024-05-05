@@ -145,3 +145,22 @@ a{
   display: grid;
   place-items: center ;
 }
+
+/* toChatBot button*/
+.toChatBot{
+  width: 80px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(41, 208, 41);
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* chatBot */
+.chatUI{
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+}

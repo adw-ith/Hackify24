@@ -103,6 +103,7 @@ const SpeechToText: React.FC<SpeechToTextProps> = ({ onTranscriptChange }) => {
         <input
           type="text"
           className="w-100"
+          // value={transcript}
           onChange={(e) => {
             setTranscript(e.target.value);
           }}

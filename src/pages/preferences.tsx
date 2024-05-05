@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
-import { MdCancel } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 interface Preference {
   [key: string]: {
@@ -345,13 +345,12 @@ export default function Preferences() {
             }}
           >
             {pre}
-            <span>
-              <MdCancel />
-            </span>
           </p>
         ))}
-        ;
       </div>
+
+      {/* button to chatbot */}
+      <Link to="/chat" className="toChatBot">Next</Link>
     </section>
   );
 }

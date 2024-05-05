@@ -17,7 +17,7 @@ export default function ChatInterface() {
     >
       <div className="chatInterfaceHead d-flex justify-content-between">
         <h3>EMOTI</h3>
-        <Link to="/mem" className="btn btn-secondary">
+        <Link to="/mem" style={{height: "fit-content"}} className="btn btn-secondary">
           data
         </Link>
       </div>
